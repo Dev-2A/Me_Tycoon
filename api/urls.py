@@ -1,7 +1,7 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from users.views import UserViewSet, login_view, register_view
-from quests.views import QuestViewSet, UserQuestViewSet
+from quests.views import QuestViewSet, UserQuestViewSet, complete_quest
 from rewards.views import RewardViewSet, UserRewardViewSet
 
 router = DefaultRouter()
@@ -15,4 +15,5 @@ urlpatterns = [
     path('', include(router.urls)),  # ✅ API 라우터 포함
     path('login/', login_view, name='login'),  # ✅ 로그인 API 추가
     path('register/', register_view, name='register'),  # ✅ 회원가입 API 추가
+    path('complete-quest/', complete_quest, name='complete-quest'),  # ✅ 퀘스트 완료 API 추가
 ]

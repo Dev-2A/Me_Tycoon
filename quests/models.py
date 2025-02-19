@@ -15,7 +15,7 @@ class Quest(models.Model):
     title = models.CharField(max_length=255)
     description = models.TextField()
     xp_reward = models.IntegerField()
-    coins_reward = models.IntegerField()
+    coin_reward = models.IntegerField()
     category = models.CharField(max_length=10, choices=CATEGORY_CHOICES)
     status = models.BooleanField(default=True) # 활성화 여부
     
