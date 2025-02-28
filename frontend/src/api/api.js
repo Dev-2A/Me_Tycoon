@@ -61,10 +61,59 @@ export const fetchQuests = () => apiRequest("quests");
 export const completeQuest = (questId) => apiRequest("complete-quest", "POST", { quest_id: questId });
 
 // ✅ 사용자 정보 가져오기
-export const getUserInfo = () => apiRequest("users/me");
+export const getUserInfo = async () => {
+    try {
+        const response = await fetch(`${BASE_URL}/users/me/`, {
+            method: "GET",
+            headers: getHeaders(),
+        });
+
+        if (!response.ok) {
+            throw new Error("사용자 정보를 가져오는데 실패했습니다.");
+        }
+
+        const data = await response.json();
+        
+        if (!data.quests) {
+            console.warn("⚠️ 사용자 정보에 quests 필드 없음, 빈 배열 할당");
+            data.quests = [];  // ✅ 안전하게 빈 배열 추가
+        }
+
+        console.log("📦 사용자 정보 데이터:", data);
+        return data;
+    } catch (error) {
+        console.error("❌ getUserInfo 에러:", error);
+        throw error;
+    }
+};
 
 // ✅ 홈 화면 데이터 가져오기 (백엔드 엔드포인트 확인 필요)
 export const fetchHomeData = () => apiRequest("home");
 
 // ✅ 보상 구매 API
 export const buyReward = (rewardId) => apiRequest("buy-reward", "POST", { reward_id: rewardId });
+
+// ✅ 완료한 퀘스트 목록 조회
+export const fetchQuestHistory = () => apiRequest("quest-history");
+
+// ✅ 구매한 보상 목록 조회
+export const fetchRewardHistory = () => apiRequest("reward-history");
+
+// ✅ 개별 퀘스트 조회
+export const fetchQuestDetail = (questId) => apiRequest(`quests/${questId}`);
+
+// ✅ 개별 보상 조회
+export const fetchRewardDetail = (rewardId) => apiRequest(`rewards/${rewardId}`);
+
+// ✅ 로그아웃 기능 추가
+export const logout = () => {
+    localStorage.removeItem("token"); // ✅ 토큰 삭제
+    window.dispatchEvent(new Event("storage")); // ✅ 상태 변경 감지 트리거
+    console.log("🚪 로그아웃 완료: 토큰 삭제됨");
+};
+
+// ✅ 보상 목록 조회
+export const fetchRewards = () => apiRequest("rewards");
+
+// ✅ 내 보상 내역 조회
+export const fetchUserRewards = () => apiRequest("reward-history");

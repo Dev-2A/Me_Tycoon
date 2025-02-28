@@ -4,26 +4,35 @@ import Login from "./pages/Login";
 import Quests from "./pages/Quests";
 import Profile from "./pages/Profile";
 import Home from "./pages/Home"; // ✅ 홈 화면 추가
+import Rewards from "./pages/Rewards"; // ✅ 보상 페이지 추가
+import History from "./pages/History";
+import QuestDetail from "./pages/QuestDetail";
+import RewardDetail from "./pages/RewardDetail";
+import Header from "./components/Header";
+import UserRewards from "./pages/UserRewards";
 
 function App() {
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [loading, setLoading] = useState(true); // ✅ 초기 로딩 상태 추가
+  const [isAuthenticated, setIsAuthenticated] = useState(() => !!localStorage.getItem("token"));
 
-  // ✅ 기존 토큰 감지하여 로그인 상태 유지
+  // ✅ 로컬 스토리지 변경 감지하여 로그인 상태 업데이트
   useEffect(() => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      console.log("✅ 기존 토큰 감지됨, 로그인 상태 유지");
-      setIsAuthenticated(true);
-    }
-    setLoading(false); // ✅ 로딩 완료 후 상태 변경
+    const checkAuthStatus = () => {
+      setIsAuthenticated(!!localStorage.getItem("token"));
+    };
+
+    window.addEventListener("storage", checkAuthStatus);
+    return () => {
+      window.removeEventListener("storage", checkAuthStatus);
+    };
   }, []);
 
-  // ✅ 로딩 중에는 화면 표시 안 함 (깜빡임 방지)
-  if (loading) return <div>로딩 중...</div>;
+  useEffect(() => {
+    console.log("🔐 인증 상태 변경:", isAuthenticated);
+  }, [isAuthenticated]);
 
   return (
     <Router>
+      <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} /> {/* ✅ 공통 헤더 추가 */}
       <Routes>
         {/* ✅ 홈 화면 */}
         <Route path="/" element={<Home />} />
@@ -44,6 +53,36 @@ function App() {
         <Route
           path="/profile"
           element={isAuthenticated ? <Profile /> : <Navigate to="/login" />}
+        />
+
+        {/* ✅ 보상 페이지 */}
+        <Route
+          path="/rewards"
+          element={isAuthenticated ? <Rewards /> : <Navigate to="/login" />}
+        />
+
+        {/* ✅ 퀘스트&보상 내역 페이지 */}
+        <Route 
+          path="/history"
+          element={isAuthenticated ? <History /> : <Navigate to="/login" />}
+        />
+
+        {/* ✅ 퀘스트 상세 페이지 */}
+        <Route 
+          path="/quests/:questId"
+          element={isAuthenticated ? <QuestDetail /> : <Navigate to="/login" />}
+        />
+
+        {/* ✅ 보상 상세 페이지 */}
+        <Route 
+          path="/rewards/:id"
+          element={isAuthenticated ? <RewardDetail /> : <Navigate to="/login" />}
+        />
+
+        {/* ✅ 유저 보상 목록 페이지 */}
+        <Route 
+          path="/user-rewards"
+          element={isAuthenticated ? <UserRewards /> : <Navigate to="/login" />}
         />
 
         {/* ✅ 존재하지 않는 경로 -> 홈으로 리디렉트 */}

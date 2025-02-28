@@ -1,19 +1,17 @@
-import { useEffect, useState } from "react";
-import { fetchHomeData } from "../api/api"; // ✅ API 호출 추가
+import { Link } from "react-router-dom";
 
 function Home() {
-  const [message, setMessage] = useState("홈 화면입니다!");
-
-  useEffect(() => {
-    fetchHomeData()
-      .then((data) => setMessage(data.message))
-      .catch((error) => console.error("홈 데이터 불러오기 실패:", error));
-  }, []);
-
   return (
     <div>
-      <h1>🏡 Me Tycoon 홈</h1>
-      <p>{message}</p>
+      <h1>🏠 Me Tycoon에 오신 것을 환영합니다!</h1>
+      <p>퀘스트를 완료하고 보상을 획득하세요!</p>
+      <nav>
+        <ul>
+          <li><Link to="/quests">📜 퀘스트 목록</Link></li>
+          <li><Link to="/rewards">🎁 보상 목록</Link></li>
+          <li><Link to="/profile">👤 내 프로필</Link></li>
+        </ul>
+      </nav>
     </div>
   );
 }

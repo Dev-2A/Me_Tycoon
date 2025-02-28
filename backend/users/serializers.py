@@ -2,11 +2,23 @@ from rest_framework import serializers
 from django.contrib.auth import authenticate
 from django.contrib.auth.hashers import make_password
 from .models import User
+from quests.serializers import QuestSerializer
+from quests.models import UserQuest, Quest
 
 class UserSerializer(serializers.ModelSerializer):
+    quests = serializers.SerializerMethodField()
+    
     class Meta:
         model = User
-        fields = ['id', 'username', 'email', 'level', 'xp', 'coins']
+        fields = ['id', 'username', 'level', 'xp', 'coins', "quests"]
+    
+    def get_quests(self, obj):
+        user_quests = UserQuest.objects.filter(user=obj)
+        
+        if not user_quests.exists():
+            return []  # ✅ 퀘스트가 없을 경우 빈 배열 반환
+        
+        return QuestSerializer([uq.quest for uq in user_quests], many=True).data
 
 class LoginSerializer(serializers.Serializer):
     username = serializers.CharField()
