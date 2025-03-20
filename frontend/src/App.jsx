@@ -10,6 +10,13 @@ import QuestDetail from "./pages/QuestDetail";
 import RewardDetail from "./pages/RewardDetail";
 import Header from "./components/Header";
 import UserRewards from "./pages/UserRewards";
+import Achievements from "./pages/Achievements";
+import Titles from "./pages/Titles";
+import Dashboard from "./pages/Dashboard";
+
+import "./styles/Dashboard.css";
+import "./styles/Achievements.css";
+import "./styles/Titles.css";
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => !!localStorage.getItem("token"));
@@ -83,6 +90,24 @@ function App() {
         <Route 
           path="/user-rewards"
           element={isAuthenticated ? <UserRewards /> : <Navigate to="/login" />}
+        />
+
+        {/* ✅ 업적 목록 페이지 */}
+        <Route
+          path="/achievements"
+          element={isAuthenticated ? <Achievements /> : <Navigate to="/login" />}
+        />
+
+        {/* ✅ 칭호 목록 페이지 */}
+        <Route
+          path="/titles"
+          element={isAuthenticated ? <Titles /> : <Navigate to="/login" />}
+        />
+
+        {/* ✅ 대시보드 페이지 */}
+        <Route
+          path="/dashboard"
+          element={isAuthenticated ? <Dashboard /> : <Navigate to="/login" />}
         />
 
         {/* ✅ 존재하지 않는 경로 -> 홈으로 리디렉트 */}

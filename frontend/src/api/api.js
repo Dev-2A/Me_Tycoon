@@ -117,3 +117,19 @@ export const fetchRewards = () => apiRequest("rewards");
 
 // ✅ 내 보상 내역 조회
 export const fetchUserRewards = () => apiRequest("reward-history");
+
+// ✅ 업적 관련 API
+export const fetchAchievements = () => apiRequest("achievements");
+export const fetchMyAchievements = () => apiRequest("my-achievements");
+
+// ✅ 칭호 관련 API
+export const fetchTitles = () => apiRequest("titles");
+export const fetchMyTitles = () => apiRequest("my-titles");
+export const fetchActiveTitle = () => apiRequest("active-title");
+export const setActiveTitle = (titleId) => apiRequest(`user-titles/${titleId}/set_active`, "POST");
+
+// ✅ 통계 관련 API
+export const fetchStatsOverview = () => apiRequest("stats/overview");
+export const fetchActivityHistory = (days = 7) => apiRequest(`stats/activity?days=${days}`);
+export const fetchQuestStatistics = () => apiRequest("stats/quests");
+export const fetchRewardStatistics = () => apiRequest("stats/rewards");

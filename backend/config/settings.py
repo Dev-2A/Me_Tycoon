@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "rewards",
     "achievements",
     "titles",
+    "stats",
 ]
 
 MIDDLEWARE = [

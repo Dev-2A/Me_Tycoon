@@ -10,4 +10,9 @@ class AchievementViewSet(viewsets.ReadOnlyModelViewSet):
     serializer_class = AchievementSerializer
 
 class UserAchievementViewSet(viewsets.ReadOnlyModelViewSet):
-    serializer_class = UserAchievement
+    serializer_class = UserAchievementSerializer
+    permission_classes = [IsAuthenticated]
+    
+    def get_queryset(self):
+        # 현재 로그인한 사용자의 업적만 반환
+        return UserAchievement.objects.filter(user=self.request.user)

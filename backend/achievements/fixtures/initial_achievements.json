@@ -1,0 +1,106 @@
+[
+    {
+      "model": "achievements.achievement",
+      "pk": 1,
+      "fields": {
+        "name": "첫 퀘스트",
+        "description": "첫 번째 퀘스트를 완료했습니다.",
+        "category": "quest",
+        "icon": "🎯",
+        "xp_reward": 50,
+        "coin_reward": 20,
+        "required_value": 1
+      }
+    },
+    {
+      "model": "achievements.achievement",
+      "pk": 2,
+      "fields": {
+        "name": "퀘스트 마스터 10",
+        "description": "10개의 퀘스트를 완료했습니다.",
+        "category": "quest",
+        "icon": "📚",
+        "xp_reward": 100,
+        "coin_reward": 50,
+        "required_value": 10
+      }
+    },
+    {
+      "model": "achievements.achievement",
+      "pk": 3,
+      "fields": {
+        "name": "퀘스트 마스터 50",
+        "description": "50개의 퀘스트를 완료했습니다.",
+        "category": "quest",
+        "icon": "📚",
+        "xp_reward": 300,
+        "coin_reward": 150,
+        "required_value": 50
+      }
+    },
+    {
+      "model": "achievements.achievement",
+      "pk": 4,
+      "fields": {
+        "name": "초보 모험가",
+        "description": "레벨 5에 도달했습니다.",
+        "category": "level",
+        "icon": "⭐",
+        "xp_reward": 200,
+        "coin_reward": 100,
+        "required_value": 5
+      }
+    },
+    {
+      "model": "achievements.achievement",
+      "pk": 5,
+      "fields": {
+        "name": "성장하는 영웅",
+        "description": "레벨 10에 도달했습니다.",
+        "category": "level",
+        "icon": "⭐⭐",
+        "xp_reward": 500,
+        "coin_reward": 250,
+        "required_value": 10
+      }
+    },
+    {
+      "model": "achievements.achievement",
+      "pk": 6,
+      "fields": {
+        "name": "첫 보상",
+        "description": "첫 번째 보상을 구매했습니다.",
+        "category": "reward",
+        "icon": "🎁",
+        "xp_reward": 50,
+        "coin_reward": 0,
+        "required_value": 1
+      }
+    },
+    {
+      "model": "achievements.achievement",
+      "pk": 7,
+      "fields": {
+        "name": "수집가",
+        "description": "5개의 보상을 구매했습니다.",
+        "category": "reward",
+        "icon": "💎",
+        "xp_reward": 200,
+        "coin_reward": 0,
+        "required_value": 5
+      }
+    },
+    {
+      "model": "achievements.achievement",
+      "pk": 8,
+      "fields": {
+        "name": "완벽주의자",
+        "description": "모든 종류의 퀘스트를 하나씩 완료했습니다.",
+        "category": "special",
+        "icon": "🏅",
+        "xp_reward": 300,
+        "coin_reward": 200,
+        "required_value": 1
+      }
+    }
+  ]

@@ -1,0 +1,101 @@
+[
+    {
+      "model": "titles.title",
+      "pk": 1,
+      "fields": {
+        "name": "초보자",
+        "description": "모험을 시작한 초보자",
+        "icon": "🔰",
+        "required_achievement": null,
+        "required_level": 1
+      }
+    },
+    {
+      "model": "titles.title",
+      "pk": 2,
+      "fields": {
+        "name": "퀘스트 추적자",
+        "description": "첫 퀘스트를 완료한 추적자",
+        "icon": "🔍",
+        "required_achievement": 1,
+        "required_level": null
+      }
+    },
+    {
+      "model": "titles.title",
+      "pk": 3,
+      "fields": {
+        "name": "퀘스트 사냥꾼",
+        "description": "10개의 퀘스트를 완료한 사냥꾼",
+        "icon": "🏹",
+        "required_achievement": 2,
+        "required_level": null
+      }
+    },
+    {
+      "model": "titles.title",
+      "pk": 4,
+      "fields": {
+        "name": "퀘스트의 대가",
+        "description": "50개의 퀘스트를 완료한 대가",
+        "icon": "👑",
+        "required_achievement": 3,
+        "required_level": null
+      }
+    },
+    {
+      "model": "titles.title",
+      "pk": 5,
+      "fields": {
+        "name": "수습 모험가",
+        "description": "레벨 5에 도달한 모험가",
+        "icon": "🌟",
+        "required_achievement": 4,
+        "required_level": null
+      }
+    },
+    {
+      "model": "titles.title",
+      "pk": 6,
+      "fields": {
+        "name": "숙련된 영웅",
+        "description": "레벨 10에 도달한 영웅",
+        "icon": "⚔️",
+        "required_achievement": 5,
+        "required_level": null
+      }
+    },
+    {
+      "model": "titles.title",
+      "pk": 7,
+      "fields": {
+        "name": "보상 사냥꾼",
+        "description": "첫 번째 보상을 획득한 사냥꾼",
+        "icon": "🎯",
+        "required_achievement": 6,
+        "required_level": null
+      }
+    },
+    {
+      "model": "titles.title",
+      "pk": 8,
+      "fields": {
+        "name": "수집의 대가",
+        "description": "5개의 보상을 모은 대가",
+        "icon": "💰",
+        "required_achievement": 7,
+        "required_level": null
+      }
+    },
+    {
+      "model": "titles.title",
+      "pk": 9,
+      "fields": {
+        "name": "완벽주의자",
+        "description": "모든 종류의 퀘스트를 완료한 자",
+        "icon": "✨",
+        "required_achievement": 8,
+        "required_level": null
+      }
+    }
+  ]

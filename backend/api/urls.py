@@ -3,6 +3,9 @@ from rest_framework.routers import DefaultRouter
 from users.views import UserViewSet, login_view, register_view, get_user_info, user_stats
 from quests.views import QuestViewSet, UserQuestViewSet, complete_quest, quest_history
 from rewards.views import RewardViewSet, UserRewardViewSet, buy_reward, reward_history
+from achievements.views import AchievementViewSet, UserAchievementViewSet
+from titles.views import TitleViewSet, UserTitleViewSet, my_titles, active_title
+from stats.views import stats_overview, activity_history, quest_statistics, reward_statistics
 
 # ✅ DRF Router 설정
 router = DefaultRouter()
@@ -11,6 +14,10 @@ router.register(r'quests', QuestViewSet)
 router.register(r'user-quests', UserQuestViewSet)
 router.register(r'rewards', RewardViewSet)
 router.register(r'user-rewards', UserRewardViewSet, basename='user-reward')
+router.register(r'achievements', AchievementViewSet)
+router.register(r'user-achievements', UserAchievementViewSet, basename='user-achievement')
+router.register(r'titles', TitleViewSet)
+router.register(r'user-titles', UserTitleViewSet, basename='user-title')
 
 # ✅ urlpatterns 확인
 urlpatterns = [
@@ -23,6 +30,13 @@ urlpatterns = [
     path("buy-reward/", buy_reward, name="buy-reward"),
     path("quest-history/", quest_history, name="quest-history"), # ✅ 퀘스트 내역 API
     path("reward-history/", reward_history, name="reward-history"), # ✅ 보상 내역 API
+    path("my-achievements/", UserAchievementViewSet.as_view({'get': 'list'}), name="my-achievements"), # 업적
+    path("my-titles/", my_titles, name="my-titles"),
+    path("active-title/", active_title, name="active-title"), # 칭호
+    path("stats/overview/", stats_overview, name="stats-overview"),
+    path("stats/activity/", activity_history, name="activity-history"),
+    path("stats/quests/", quest_statistics, name="quest-statistics"),
+    path("stats/rewards/", reward_statistics, name="reward-statistics"), # 통계
 ]
 
 # ✅ DEBUGGING: URL 등록 여부 확인

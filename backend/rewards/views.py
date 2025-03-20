@@ -77,7 +77,7 @@ def reward_history(request):
             "reward_name": ur.reward.name,
             "description": ur.reward.description,
             "cost": ur.reward.cost,
-            "purchased_at": localtime(ur.purchased_at).strftime('%Y-%m-%d %H:%M')  # 한국 시간으로 변환
+            "purchased_at": localtime(ur.purchase_date).strftime('%Y-%m-%d %H:%M')  # 한국 시간으로 변환
         }
         for ur in user_rewards
     ]
