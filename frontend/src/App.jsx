@@ -13,6 +13,8 @@ import UserRewards from "./pages/UserRewards";
 import Achievements from "./pages/Achievements";
 import Titles from "./pages/Titles";
 import Dashboard from "./pages/Dashboard";
+import AutoQuestNotification from "./components/AutoQuestNotification";
+import AchievementNotification from "./components/AchievementNotification";
 
 // 공통 스타일 로드
 import "./styles/theme.css";
@@ -21,6 +23,8 @@ import "./styles/Achievements.css";
 import "./styles/Titles.css";
 import "./styles/quests.css";
 import "./styles/rewards.css";
+import "./styles/notifications.css";
+
 
 function App() {
   const [isAuthenticated, setIsAuthenticated] = useState(() => !!localStorage.getItem("token"));
@@ -37,14 +41,20 @@ function App() {
     };
   }, []);
 
-  useEffect(() => {
-    console.log("🔐 인증 상태 변경:", isAuthenticated);
-  }, [isAuthenticated]);
+  // useEffect(() => {
+  //   console.log("🔐 인증 상태 변경:", isAuthenticated);
+  // }, [isAuthenticated]);
 
   return (
     <Router>
       <Header isAuthenticated={isAuthenticated} setIsAuthenticated={setIsAuthenticated} />
       <main className="main-content">
+        {isAuthenticated && (
+          <>
+            <AutoQuestNotification />
+            <AchievementNotification />
+          </>
+        )}
         <Routes>
           {/* 홈 화면 */}
           <Route path="/" element={<Home />} />

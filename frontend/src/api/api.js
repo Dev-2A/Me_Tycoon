@@ -133,3 +133,21 @@ export const fetchStatsOverview = () => apiRequest("stats/overview");
 export const fetchActivityHistory = (days = 7) => apiRequest(`stats/activity?days=${days}`);
 export const fetchQuestStatistics = () => apiRequest("stats/quests");
 export const fetchRewardStatistics = () => apiRequest("stats/rewards");
+
+// 보상 적용 API
+export const applyReward = (rewardId) => apiRequest("apply-reward", "POST", { reward_id: rewardId });
+
+// 보상 적용 해제 API
+export const removeAppliedReward = (rewardType) => apiRequest("remove-applied-reward", "POST", { reward_type: rewardType });
+
+// 적용 중인 보상 조회 API
+export const getAppliedRewards = () => apiRequest("applied-rewards");
+
+// 자동 완료 퀘스트 조회 API
+export const getAutoCompletedQuests = () => apiRequest("auto-completed-quests");
+
+// 최근 획득한 업적 조회 API
+export const getNewAchievements = () => apiRequest("new-achievements");
+
+// 업적 확인 처리 API
+export const acknowledgeAchievement = (achievementId) => apiRequest("acknowledge-achievement", "POST", { achievement_id: achievementId });

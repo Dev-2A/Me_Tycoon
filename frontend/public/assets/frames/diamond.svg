@@ -1,0 +1,11 @@
+<svg width="200" height="200" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="diamondGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#9ac5db" />
+      <stop offset="50%" stop-color="#6fb1d9" />
+      <stop offset="100%" stop-color="#3a8bc2" />
+    </linearGradient>
+  </defs>
+  <circle cx="100" cy="100" r="95" fill="none" stroke="url(#diamondGradient)" stroke-width="10" />
+  <path d="M100,10 L110,25 L125,15 L125,35 L145,35 L135,50 L155,60 L135,70 L145,85 L125,85 L125,105 L110,95 L100,110 L90,95 L75,105 L75,85 L55,85 L65,70 L45,60 L65,50 L55,35 L75,35 L75,15 L90,25 Z" fill="none" stroke="#6fb1d9" stroke-width="2" transform="scale(1.5) translate(0, 0)" />
+</svg>

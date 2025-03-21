@@ -1,0 +1,149 @@
+.auto-quest-notification {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, var(--primary-dark), var(--primary));
+    color: white;
+    border-radius: var(--rounded-lg);
+    box-shadow: var(--shadow-xl);
+    width: 350px;
+    max-width: 90vw;
+    z-index: 1000;
+    overflow: hidden;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    background-color: rgba(0, 0, 0, 0.2);
+  }
+  
+  .notification-header h3 {
+    margin: 0;
+    font-size: var(--font-lg);
+  }
+  
+  .close-btn {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    padding: 0;
+  }
+  
+  .notification-content {
+    padding: 1.5rem;
+  }
+  
+  .notification-content h4 {
+    margin: 0 0 1rem 0;
+    font-size: var(--font-xl);
+    text-align: center;
+  }
+  
+  .quest-rewards {
+    display: flex;
+    justify-content: space-around;
+    gap: 1rem;
+    margin: 1rem 0;
+  }
+  
+  .reward-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: var(--rounded-full);
+    transition: all 0.3s ease;
+  }
+  
+  .reward-item:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    transform: scale(1.05);
+  }
+  
+  .reward-icon {
+    font-size: 1.2rem;
+  }
+  
+  .notification-footer {
+    padding: 1rem 1.5rem;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .notification-footer .btn {
+    min-width: 120px;
+  }
+
+/* 업적 알림 스타일 */
+.achievement-notification {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(135deg, var(--game-gold), #ffc107);
+    color: #442800;
+    border-radius: var(--rounded-lg);
+    box-shadow: 0 0 30px rgba(255, 215, 0, 0.5);
+    width: 400px;
+    max-width: 90vw;
+    z-index: 1000;
+    overflow: hidden;
+  }
+  
+  .achievement-header {
+    background-color: rgba(0, 0, 0, 0.1);
+  }
+  
+  .achievement-content {
+    text-align: center;
+  }
+  
+  .achievement-icon {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    animation: pulse 2s infinite;
+  }
+  
+  .achievement-content h4 {
+    font-size: var(--font-xl);
+    margin-bottom: 0.5rem;
+  }
+  
+  .achievement-content p {
+    margin-bottom: 1.5rem;
+    opacity: 0.9;
+  }
+  
+  .achievement-rewards {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin: 1.5rem 0;
+  }
+  
+  .achievement-rewards .reward-item {
+    background-color: white;
+    color: var(--neutral-800);
+    font-weight: 600;
+  }
+  
+  .achievement-footer {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+  
+  .achievement-footer .btn-primary {
+    background: linear-gradient(to right, #442800, #8B4513);
+    box-shadow: 0 4px 10px rgba(139, 69, 19, 0.3);
+  }
+  
+  .achievement-footer .btn-primary:hover {
+    box-shadow: 0 6px 15px rgba(139, 69, 19, 0.4);
+  }

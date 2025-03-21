@@ -7,6 +7,13 @@ class User(AbstractUser):
     xp = models.IntegerField(default=0)
     coins = models.IntegerField(default=0)
     
+    # 현재 적용 중인 배경화면
+    background = models.CharField(max_length=100, blank=True, null=True)
+    # 현재 적용 중인 프로필 프레임
+    profile_frame = models.CharField(max_length=100, blank=True, null=True)
+    # 현재 적용 중인 특수 아이콘
+    special_icon = models.CharField(max_length=100, blank=True, null=True)
+    
     groups = models.ManyToManyField(
         "auth.Group",
         related_name="custom_user_groups",

@@ -85,3 +85,123 @@ def reward_history(request):
     return Response({
         "user_rewards": reward_data  # ✅ 깔끔한 데이터로 반환
     }, status=status.HTTP_200_OK)
+
+# 보상 적용 API 추가
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def apply_reward(request):
+    """사용자가 가진 보상을 프로필에 적용합니다."""
+    user = request.user
+    reward_id = request.data.get('reward_id')
+    
+    try:
+        # 사용자가 해당 보상을 보유하고 있는지 확인
+        user_reward = UserReward.objects.filter(user=user, reward_id=reward_id)
+        reward = user_reward.reward
+        
+        # 보상 유형에 따라 사용자 모델 업데이트
+        if reward.reward_type == 'background':
+            user.background = reward.reward_value
+        elif reward.reward_type == 'profile_frame':
+            user.profile_frame = reward.reward_value
+        elif reward.reward_type == 'special_icon':
+            user.special_icon = reward.reward_value
+        elif reward.reward_type == 'booster':
+            # 부스터는 일시적인 효과이므로 별도 처리 필요
+            # 여기서는 간단하게 응답만 반환
+            return Response({
+                "message": f"{reward.name} 부스터가 적용되었습니다!",
+                "duration": "24시간",
+                "effect": reward.reward_value
+            })
+            
+        user.save()
+        
+        return Response({
+            "message": f"{reward.name}이(가) 프로필에 적용되었습니다!",
+            "reward_type": reward.reward_type,
+            "reward_value": reward.reward_value
+        })
+        
+    except UserReward.DoesNotExist:
+        return Response({"error": "해당 보상을 보유하고 있지 않습니다."}, status=status.HTTP_404_NOT_FOUND)
+    except Exception as e:
+        return Response({"error": f"보상 적용 중 오류가 발생했습니다: {str(e)}"}, 
+                    status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+# 보상 적용 해제 API 추가
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def remove_applied_reward(request):
+    """프로필에 적용된 보상을 해제합니다."""
+    user = request.user
+    reward_type = request.data.get('reward_type')
+    
+    if not reward_type:
+        return Response({"error": "보상 유형이 필요합니다."}, status=status.HTTP_400_BAD_REQUEST)
+    
+    try:
+        # 보상 유형에 따라 필드 초기화
+        if reward_type == 'background':
+            user.background = None
+        elif reward_type == 'profile_frame':
+            user.profile_frame = None
+        elif reward_type == 'special_icon':
+            user.special_icon = None
+        
+        user.save()
+        
+        return Response({
+            "message": f"{reward_type} 보상이 해제되었습니다."
+        })
+        
+    except Exception as e:
+        return Response({"error": f"보상 해제 중 오류가 발생했습니다: {str(e)}"}, 
+                       status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+# 현재 적용 중인 보상 조회 API
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def get_applied_rewards(request):
+    """현재 사용자가 적용 중인 보상 정보를 반환합니다."""
+    user = request.user
+    
+    applied_rewards = {}
+    
+    if user.background:
+        try:
+            reward = Reward.objects.filter(reward_type='background', reward_value=user.background).first()
+            if reward:
+                applied_rewards['background'] = {
+                    'id': reward.id,
+                    'name': reward.name,
+                    'value': user.background
+                }
+        except Exception:
+            pass
+    
+    if user.profile_frame:
+        try:
+            reward = Reward.objects.filter(reward_type='profile_frame', reward_value=user.profile_frame).first()
+            if reward:
+                applied_rewards['profile_frame'] = {
+                    'id': reward.id,
+                    'name': reward.name,
+                    'value': user.profile_frame
+                }
+        except Exception:
+            pass
+    
+    if user.special_icon:
+        try:
+            reward = Reward.objects.filter(reward_type='special_icon', reward_value=user.special_icon).first()
+            if reward:
+                applied_rewards['special_icon'] = {
+                    'id': reward.id,
+                    'name': reward.name,
+                    'value': user.special_icon
+                }
+        except Exception:
+            pass
+    
+    return Response(applied_rewards)

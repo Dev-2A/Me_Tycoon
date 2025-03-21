@@ -1,0 +1,142 @@
+.profile-container {
+    padding: 2rem;
+    min-height: 100vh;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+  }
+  
+  .profile-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.85);
+    z-index: -1;
+  }
+  
+  .profile-card {
+    background-color: white;
+    border-radius: var(--rounded-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 2rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .profile-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+  
+  .profile-avatar {
+    width: 120px;
+    height: 120px;
+    background-color: var(--primary);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 1.5rem;
+    box-shadow: var(--shadow-md);
+  }
+  
+  .avatar-placeholder {
+    font-size: 3rem;
+    color: white;
+    font-weight: bold;
+  }
+  
+  .profile-title h2 {
+    margin: 0 0 0.5rem 0;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+  
+  .special-icon {
+    font-size: 1.5rem;
+  }
+  
+  .active-title {
+    display: inline-flex;
+    align-items: center;
+    background-color: var(--primary-lighter);
+    color: var(--primary-dark);
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: 500;
+  }
+  
+  .profile-stats {
+    margin-bottom: 2rem;
+  }
+  
+  .stat-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.75rem 0;
+    border-bottom: 1px solid var(--neutral-200);
+  }
+  
+  .stat-label {
+    font-weight: 500;
+    color: var(--neutral-700);
+  }
+  
+  .stat-value {
+    font-weight: 600;
+    color: var(--primary-dark);
+  }
+  
+  .applied-rewards {
+    background-color: var(--neutral-100);
+    border-radius: var(--rounded-md);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .applied-rewards h3 {
+    margin-top: 0;
+    color: var(--primary-dark);
+    margin-bottom: 1rem;
+  }
+  
+  .reward-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+  
+  .applied-reward {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem;
+    background-color: white;
+    border-radius: var(--rounded-sm);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .btn-small {
+    padding: 0.25rem 0.5rem;
+    font-size: var(--font-sm);
+  }
+  
+  .btn-danger {
+    background-color: var(--error);
+    color: white;
+  }
+  
+  .btn-danger:hover {
+    background-color: #d32f2f;
+  }
+  
+  .profile-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: flex-end;
+  }

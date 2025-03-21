@@ -1,9 +1,9 @@
 from django.urls import path, include
 from rest_framework.routers import DefaultRouter
 from users.views import UserViewSet, login_view, register_view, get_user_info, user_stats
-from quests.views import QuestViewSet, UserQuestViewSet, complete_quest, quest_history
-from rewards.views import RewardViewSet, UserRewardViewSet, buy_reward, reward_history
-from achievements.views import AchievementViewSet, UserAchievementViewSet
+from quests.views import QuestViewSet, UserQuestViewSet, complete_quest, quest_history, get_auto_completed_quests
+from rewards.views import RewardViewSet, UserRewardViewSet, buy_reward, reward_history, apply_reward, remove_applied_reward, get_applied_rewards
+from achievements.views import AchievementViewSet, UserAchievementViewSet, new_achievements, acknowledge_achievement
 from titles.views import TitleViewSet, UserTitleViewSet, my_titles, active_title
 from stats.views import stats_overview, activity_history, quest_statistics, reward_statistics
 
@@ -37,6 +37,12 @@ urlpatterns = [
     path("stats/activity/", activity_history, name="activity-history"),
     path("stats/quests/", quest_statistics, name="quest-statistics"),
     path("stats/rewards/", reward_statistics, name="reward-statistics"), # 통계
+    path("apply-reward/", apply_reward, name="apply-reward"),
+    path("remove-applied-reward/", remove_applied_reward, name="remove-applied-reward"),
+    path("applied-rewards/", get_applied_rewards, name="applied-rewards"),
+    path("auto-completed-quests/", get_auto_completed_quests, name="auto-completed-quests"),
+    path("new-achievements/", new_achievements, name="new-achievements"),
+    path("acknowledge-achievement/", acknowledge_achievement, name="acknowledge-achievement"),
 ]
 
 # ✅ DEBUGGING: URL 등록 여부 확인

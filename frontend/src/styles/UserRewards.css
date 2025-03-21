@@ -1,17 +1,117 @@
-/* 사용자 보상 내역 페이지 스타일 */
-
-.user-rewards {
-    padding: 20px;
-    background-color: #f9f9f9;
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    max-width: 600px;
-    margin: 30px auto;
-    font-family: Arial, Helvetica, sans-serif;
-    color: #333;
-}
-
-.user-rewards h1 {
-    font-size: 1.8rem;
-    margin-bottom: 20px;
-}
+.user-rewards-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+  }
+  
+  .user-rewards-container h1 {
+    margin-bottom: 2rem;
+    color: var(--primary-dark);
+    text-align: center;
+  }
+  
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    background-color: white;
+    border-radius: var(--rounded-lg);
+    box-shadow: var(--shadow-md);
+    margin: 2rem 0;
+  }
+  
+  .empty-state p {
+    font-size: var(--font-lg);
+    color: var(--neutral-600);
+    margin-bottom: 1.5rem;
+  }
+  
+  .rewards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+  
+  .user-reward-card {
+    background-color: white;
+    border-radius: var(--rounded-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+    transition: all 0.3s ease;
+    border-top: 3px solid var(--secondary);
+  }
+  
+  .user-reward-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+  }
+  
+  .reward-info {
+    padding: 1.5rem;
+  }
+  
+  .reward-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 1rem;
+  }
+  
+  .reward-header h3 {
+    margin: 0;
+    font-size: var(--font-lg);
+    color: var(--secondary-dark);
+  }
+  
+  .reward-date {
+    font-size: var(--font-sm);
+    color: var(--neutral-500);
+  }
+  
+  .reward-preview {
+    width: 100%;
+    height: 160px;
+    overflow: hidden;
+    margin-bottom: 1rem;
+    border-radius: var(--rounded-md);
+    background-color: var(--neutral-100);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .reward-preview-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+  
+  .reward-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--neutral-200);
+  }
+  
+  .back-to-profile {
+    text-align: center;
+    margin-top: 2rem;
+  }
+  
+  .applied-message {
+    background-color: var(--success);
+    color: white;
+    padding: 1rem;
+    border-radius: var(--rounded-md);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    box-shadow: var(--shadow);
+  }
+  
+  @media (max-width: 768px) {
+    .rewards-grid {
+      grid-template-columns: 1fr;
+    }
+  }
