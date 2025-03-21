@@ -1,0 +1,137 @@
+[
+    {
+      "model": "rewards.reward",
+      "pk": 1,
+      "fields": {
+        "name": "경험치 부스터",
+        "description": "24시간 동안 모든 경험치 획득량이 50% 증가합니다.",
+        "cost": 300
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 2,
+      "fields": {
+        "name": "코인 부스터",
+        "description": "24시간 동안 모든 코인 획득량이 50% 증가합니다.",
+        "cost": 300
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 3,
+      "fields": {
+        "name": "특별 배경 테마: 우주",
+        "description": "프로필에 우주 테마 배경을 적용할 수 있습니다.",
+        "cost": 500
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 4,
+      "fields": {
+        "name": "특별 배경 테마: 바다",
+        "description": "프로필에 바다 테마 배경을 적용할 수 있습니다.",
+        "cost": 500
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 5,
+      "fields": {
+        "name": "특별 배경 테마: 정글",
+        "description": "프로필에 정글 테마 배경을 적용할 수 있습니다.",
+        "cost": 500
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 6,
+      "fields": {
+        "name": "프로필 프레임: 골드",
+        "description": "프로필 사진 주위에 골드 프레임을 적용합니다.",
+        "cost": 800
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 7,
+      "fields": {
+        "name": "프로필 프레임: 다이아몬드",
+        "description": "프로필 사진 주위에 다이아몬드 프레임을 적용합니다.",
+        "cost": 1500
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 8,
+      "fields": {
+        "name": "미스터리 박스",
+        "description": "다양한 보상이 들어있는 미스터리 박스입니다.",
+        "cost": 200
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 9,
+      "fields": {
+        "name": "경험치 폭탄",
+        "description": "즉시 500 경험치를 획득합니다.",
+        "cost": 400
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 10,
+      "fields": {
+        "name": "퀘스트 리셋 토큰",
+        "description": "완료한 일일 퀘스트를 즉시 리셋하여 다시 수행할 수 있게 합니다.",
+        "cost": 350
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 11,
+      "fields": {
+        "name": "특별 아이콘: 왕관",
+        "description": "닉네임 옆에 왕관 아이콘을 표시합니다.",
+        "cost": 1000
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 12,
+      "fields": {
+        "name": "특별 아이콘: 별",
+        "description": "닉네임 옆에 별 아이콘을 표시합니다.",
+        "cost": 700
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 13,
+      "fields": {
+        "name": "VIP 패스 (7일)",
+        "description": "7일 동안 VIP 혜택을 받을 수 있습니다. 모든 보상 10% 할인, 경험치와 코인 획득량 20% 증가.",
+        "cost": 2000
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 14,
+      "fields": {
+        "name": "특별 이모티콘 세트",
+        "description": "채팅에서 사용 가능한 10개의 특별 이모티콘을 획득합니다.",
+        "cost": 600
+      }
+    },
+    {
+      "model": "rewards.reward",
+      "pk": 15,
+      "fields": {
+        "name": "레벨업 부스터",
+        "description": "다음 레벨업에 필요한 경험치를 30% 감소시킵니다.",
+        "cost": 1200
+      }
+    }
+  ]
